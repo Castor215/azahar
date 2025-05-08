@@ -304,7 +304,7 @@ if(USE_SYSTEM_CPP_HTTPLIB)
     # this breaks building as Citra relies on functions that are moved
     # into the shared object.
     get_target_property(HTTP_LIBS httplib::httplib INTERFACE_LINK_LIBRARIES)
-    if(HTTP_LIBS)
+    if(NOT HTTP_LIBS)
         message(WARNING "Shared cpp-http (${HTTP_LIBS}) not supported. Falling back to bundled...")
         target_include_directories(httplib SYSTEM INTERFACE ./httplib)
     else()
